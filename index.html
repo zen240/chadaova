@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chadao-VA — Мой путь в чае</title>
+    <title>Чайный путь</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
@@ -25,7 +25,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.7;
-            padding-top: 80px; /* Отступ для фиксированного меню */
+            padding-top: 80px; 
         }
 
         /* Навигация */
@@ -37,7 +37,7 @@
             z-index: 1000; 
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 40px;
-            flex-wrap: wrap; /* Позволяет меню переноситься на маленьких экранах */
+            flex-wrap: wrap; 
             gap: 15px;
         }
 
@@ -47,7 +47,7 @@
             text-decoration: none;
         }
 
-        .nav-links { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+        .nav-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
         .nav-links button {
             background: none; border: none; font-family: 'Inter', sans-serif;
@@ -77,19 +77,19 @@
 
         /* Сетка категорий */
         .categories {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; max-width: 1000px; margin: 0 auto 60px; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px; max-width: 1100px; margin: 0 auto 60px; padding: 0 20px;
         }
 
         .category-card {
             background: var(--card-bg); border: 1px solid var(--border-color);
-            padding: 30px 20px; text-align: center; border-radius: 8px;
+            padding: 25px 15px; text-align: center; border-radius: 8px;
             cursor: pointer; transition: all 0.3s ease;
         }
 
         .category-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent-gold); }
         .category-card h3 { font-size: 14px; color: var(--accent-gold); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .category-card h4 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--accent-green); }
+        .category-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--accent-green); }
 
         /* Контейнер для дегустаций */
         .tasting-container { max-width: 900px; margin: 0 auto 100px; padding: 0 20px; }
@@ -125,7 +125,7 @@
         .brew-time { flex-shrink: 0; width: 130px; font-weight: 600; color: var(--accent-green); font-size: 14px; }
         .brew-desc { font-size: 15px; color: #444; }
 
-        /* Подвал с кнопками соцсетей */
+        /* Подвал */
         footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 14px; background: #fff; }
         
         .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
@@ -142,7 +142,6 @@
             transform: translateY(-2px); box-shadow: 0 5px 15px rgba(46, 74, 55, 0.2);
         }
 
-        /* Адаптив для мобильных */
         @media (max-width: 900px) {
             nav { justify-content: center; padding: 10px; }
             .nav-social { border-left: none; padding-left: 0; margin-left: 0; width: 100%; justify-content: center; margin-top: 5px; }
@@ -155,13 +154,15 @@
 <body>
 
     <nav>
-        <a href="#" class="logo" onclick="showCategory('all'); return false;">Chadao-VA</a>
+        <a href="#" class="logo" onclick="showCategory('all'); return false;">Чайный путь</a>
         <div class="nav-links">
             <button onclick="showCategory('all')">Все</button>
             <button onclick="showCategory('red')">Красный</button>
             <button onclick="showCategory('white')">Белый</button>
             <button onclick="showCategory('oolong')">Улун</button>
-            <button onclick="showCategory('puer')">Пуэр</button>
+            <button onclick="showCategory('sheng')">Шэн Пуэр</button>
+            <button onclick="showCategory('shou')">Шу Пуэр</button>
+            <button onclick="showCategory('hei')">Хэй Ча</button>
             <div class="nav-social">
                 <a href="https://t.me/chadao_va" target="_blank">Telegram</a>
                 <a href="https://tiktok.com/@chadaova" target="_blank">TikTok</a>
@@ -171,7 +172,7 @@
 
     <header>
         <div class="kanji">茶道</div>
-        <h1>Мой путь в чае</h1>
+        <h1>Чайный путь</h1>
         <p>Личный дневник дегустатора. Записи об ароматах, вкусах, проливах и открытиях на дне чашки.</p>
     </header>
 
@@ -179,7 +180,9 @@
         <div class="category-card" onclick="showCategory('red')"><h3>红茶</h3><h4>Красный чай</h4></div>
         <div class="category-card" onclick="showCategory('oolong')"><h3>乌龙茶</h3><h4>Улун</h4></div>
         <div class="category-card" onclick="showCategory('white')"><h3>白茶</h3><h4>Белый чай</h4></div>
-        <div class="category-card" onclick="showCategory('puer')"><h3>黑茶</h3><h4>Пуэр</h4></div>
+        <div class="category-card" onclick="showCategory('sheng')"><h3>生普洱</h3><h4>Шэн Пуэр</h4></div>
+        <div class="category-card" onclick="showCategory('shou')"><h3>熟普洱</h3><h4>Шу Пуэр</h4></div>
+        <div class="category-card" onclick="showCategory('hei')"><h3>黑茶</h3><h4>Хэй Ча</h4></div>
     </div>
 
     <div class="tasting-container">
@@ -268,8 +271,8 @@
             </div>
         </div>
 
-        <!-- ПУЭР -->
-        <div id="puer" class="tea-section">
+        <!-- ШЭН ПУЭР -->
+        <div id="sheng" class="tea-section">
             <div class="tea-card">
                 <div class="tea-header"><div class="tea-title">Хуапянь Шэн Пуэр</div><div class="tea-subtitle">Мост бирюзового дракона • Шэн (2020)</div></div>
                 <div class="tea-history"><strong>История:</strong> Хуапянь — это «жёлтые листья», которые специально отбирают. Они дают более мягкий, сладкий и насыщенный настой по сравнению с обычным шэном.</div>
@@ -282,6 +285,24 @@
             </div>
         </div>
 
+        <!-- ШУ ПУЭР -->
+        <div id="shou" class="tea-section">
+            <div class="tea-card">
+                <div class="tea-header"><div class="tea-title">Здесь пока пусто</div><div class="tea-subtitle">Шу Пуэр ждет своей дегустации</div></div>
+                <div class="tea-history"><strong>История:</strong> Шу Пуэр (熟普洱) — это темный чай, который проходит процесс искусственного старения (ферментации). Благодаря этому он приобретает землистые, древесные, шоколадные ноты и становится очень мягким и согревающим.</div>
+                <div class="notes-block"><p>Как только ты продегустируешь шу пуэр, я добавлю его сюда с подробным описанием проливов! 🍵</p></div>
+            </div>
+        </div>
+
+        <!-- ХЭЙ ЧА -->
+        <div id="hei" class="tea-section">
+            <div class="tea-card">
+                <div class="tea-header"><div class="tea-title">Здесь пока пусто</div><div class="tea-subtitle">Хэй Ча ждет своей дегустации</div></div>
+                <div class="tea-history"><strong>История:</strong> Хэй Ча (黑茶) — это категория тёмных чаёв, к которой относится и пуэр. Сюда входят Любао, Люань, Хуа Чжуань и другие. Они проходят процесс постферментации и обладают глубоким, землистым вкусом с нотами дерева и специй.</div>
+                <div class="notes-block"><p>Как только ты продегустируешь хэй ча, я добавлю его сюда с подробным описанием! 🍵</p></div>
+            </div>
+        </div>
+
     </div>
 
     <footer>
@@ -289,7 +310,7 @@
             <a href="https://t.me/chadao_va" class="social-btn" target="_blank">✈️ Telegram</a>
             <a href="https://tiktok.com/@chadaova" class="social-btn" target="_blank">🎵 TikTok</a>
         </div>
-        <p>© 2024 Chadao-VA — личный дневник дегустатора. Сделано с любовью к чаю.</p>
+        <p>© 2024 Чайный путь — личный дневник дегустатора. Сделано с любовью к чаю.</p>
     </footer>
 
     <script>
