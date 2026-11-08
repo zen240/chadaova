@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chadao-VA — Путь китайского чая</title>
+    <title>Мой чайный дневник</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
@@ -12,19 +12,12 @@
             --text-main: #1a1a1a;
             --text-muted: #666;
             --accent-green: #2e4a37;
-            --accent-green-hover: #1e3324;
             --accent-gold: #c19b58;
             --card-bg: #ffffff;
             --border-color: #e5e0d5;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -33,289 +26,53 @@
             line-height: 1.7;
         }
 
-        /* Навигация */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             background: rgba(248, 246, 240, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
+            z-index: 1000; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--accent-green);
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--accent-green); }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+        header { text-align: center; padding: 180px 20px 100px; }
+        .kanji { font-size: 32px; letter-spacing: 15px; color: var(--accent-gold); margin-bottom: 20px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 56px; margin-bottom: 20px; color: var(--accent-green); }
+        header p { max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 18px; }
 
-        .nav-links button {
-            background: none;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: color 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .container { max-width: 900px; margin: 0 auto 100px; padding: 0 20px; }
 
-        .nav-links button:hover, .nav-links button.active {
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        /* Главный экран */
-        header {
-            text-align: center;
-            padding: 180px 20px 100px;
-        }
-
-        .kanji {
-            font-size: 32px;
-            letter-spacing: 15px;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-            line-height: 1.2;
-        }
-
-        header p {
-            max-width: 600px;
-            margin: 0 auto;
-            color: var(--text-muted);
-            font-size: 18px;
-            font-weight: 300;
-        }
-
-        /* Сетка категорий */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
-        }
-
-        .category-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            border-color: var(--accent-gold);
-        }
-
-        .category-card h3 {
-            font-size: 14px;
-            color: var(--accent-gold);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .category-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: var(--accent-green);
-        }
-
-        /* Контейнер для дегустаций */
-        .tasting-container {
-            max-width: 900px;
-            margin: 0 auto 100px;
-            padding: 0 20px;
-        }
-
-        .tea-section {
-            display: none;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .tea-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Карточка чая */
         .tea-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            margin-bottom: 40px;
+            background: var(--card-bg); border-radius: 12px; padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--border-color); margin-bottom: 40px;
         }
 
-        .tea-header {
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .tea-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--accent-green);
-            margin-bottom: 10px;
-        }
-
-        .tea-subtitle {
-            font-size: 16px;
-            color: var(--accent-gold);
-            font-style: italic;
-        }
-
+        .tea-title { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--accent-green); margin-bottom: 10px; }
+        .tea-subtitle { font-size: 16px; color: var(--accent-gold); font-style: italic; margin-bottom: 20px; }
+        
         .tea-history {
-            background: #fdfbf7;
-            padding: 20px;
-            border-left: 3px solid var(--accent-gold);
-            margin-bottom: 30px;
-            font-size: 15px;
-            color: #444;
+            background: #fdfbf7; padding: 20px; border-left: 3px solid var(--accent-gold);
+            margin-bottom: 30px; font-size: 15px; color: #444;
         }
 
-        .params-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
+        .params { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .param { background: var(--bg-color); padding: 10px 20px; border-radius: 6px; font-size: 14px; color: var(--accent-green); font-weight: 600; }
 
-        .param-item {
-            background: var(--bg-color);
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
-        }
+        h5 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold); margin: 20px 0 5px; border-bottom: 1px dashed var(--border-color); display: inline-block; }
+        p { font-size: 15px; color: #333; }
 
-        .param-label {
-            display: block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-        }
+        .brew-item { display: flex; gap: 20px; margin-top: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .brew-time { width: 120px; font-weight: 600; color: var(--accent-green); font-size: 14px; flex-shrink: 0; }
 
-        .param-value {
-            font-weight: 600;
-            color: var(--accent-green);
-            font-size: 15px;
-        }
-
-        .notes-block {
-            margin-bottom: 25px;
-        }
-
-        .notes-block h5 {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-gold);
-            margin-bottom: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-
-        .notes-block p {
-            font-size: 15px;
-            color: #333;
-        }
-
-        .brews-list {
-            margin-top: 30px;
-        }
-
-        .brew-item {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .brew-item:last-child {
-            border-bottom: none;
-        }
-
-        .brew-time {
-            flex-shrink: 0;
-            width: 130px;
-            font-weight: 600;
-            color: var(--accent-green);
-            font-size: 14px;
-        }
-
-        .brew-desc {
-            font-size: 15px;
-            color: #444;
-        }
-
-        /* Подвал */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 14px;
-            background: #fff;
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            header h1 { font-size: 36px; }
-            .tea-card { padding: 20px; }
-            .brew-item { flex-direction: column; gap: 5px; }
-        }
+        footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 14px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo" onclick="showCategory('all')">Chadao-VA</div>
-        <div class="nav-links">
-            <button onclick="showCategory('all')">Все дегустации</button>
-            <button onclick="showCategory('red')">Красный чай</button>
-            <button onclick="showCategory('white')">Белый чай</button>
-            <button onclick="showCategory('oolong')">Улун</button>
-            <button onclick="showCategory('puer')">Пуэр</button>
-        </div>
+        <div class="logo">Chadao-VA</div>
     </nav>
 
     <header>
@@ -324,364 +81,99 @@
         <p>Личный дневник дегустатора. Записи об ароматах, вкусах, проливах и открытиях на дне чашки.</p>
     </header>
 
-    <div class="categories">
-        <div class="category-card" onclick="showCategory('red')">
-            <h3>红茶</h3>
-            <h4>Красный чай</h4>
-        </div>
-        <div class="category-card" onclick="showCategory('oolong')">
-            <h3>乌龙茶</h3>
-            <h4>Улун</h4>
-        </div>
-        <div class="category-card" onclick="showCategory('white')">
-            <h3>白茶</h3>
-            <h4>Белый чай</h4>
-        </div>
-        <div class="category-card" onclick="showCategory('puer')">
-            <h3>黑茶</h3>
-            <h4>Пуэр</h4>
-        </div>
-    </div>
-
-    <div class="tasting-container">
+    <div class="container">
         
-        <!-- КРАСНЫЙ ЧАЙ -->
-        <div id="red" class="tea-section">
-            
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Мэй Чжань Хун Ча</div>
-                    <div class="tea-subtitle">Слива предсказаний • Красный чай (Сяоджун)</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Относится к категории сяочжунов из провинции Фуцзянь. Сорт «Слива предсказаний» ценится за уникальную способность передавать в настое плотные ноты чернослива, вишневого пирога и ягодной пастилы.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Сильная хлебная корочка, ржаной хлеб, чернослив, слива, жареные семечки, сухофрукты, ягодки с кислинкой.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Чернослив на первом месте, сухофрукты, лесные ягоды (черешня, голубика, черника), хлебная корочка.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1–2-й (20, 25 сек)</div><div class="brew-desc">Маслянистый и плотный. Очень сильная слива. Ягодная кислинка, кислая вишня, черешня. Корочка, мякиш, сухофрукты, мёд, вишнёвый пирог, лесные ягоды, бисквит, сдоба.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (30 сек)</div><div class="brew-desc">Плотный, маслянистый. Слегка горчит. Обжаренные семечки. Хлебушек, чернослив, лесные ягоды, сухофрукты. Горькая, терпкая, вяжущая черешня.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (30 сек)</div><div class="brew-desc">Вишня, слива, вишнёвый пирог, сдоба, ягодная кислинка, лесные ягоды, сухофрукты, фруктовая пастила.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й (35 сек)</div><div class="brew-desc">Корочка, вишнёвый пирог, кислая вишня, кислые ягоды, слива, пастила, кисленькие фрукты, чуть-чуть карамелизованных фруктов.</div></div>
-                </div>
+        <div class="tea-card">
+            <div class="tea-title">Мэй Чжань Хун Ча</div>
+            <div class="tea-subtitle">Слива предсказаний • Красный чай</div>
+            <div class="tea-history">
+                <strong>История:</strong> Относится к категории сяочжунов из провинции Фуцзянь. Сорт «Слива предсказаний» ценится за уникальную способность передавать в настое плотные ноты чернослива, вишневого пирога и ягодной пастилы.
             </div>
-
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Дянь Хун Цзинь Цзюнь</div>
-                    <div class="tea-subtitle">Золотые ветви • Красный чай из Юньнани</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Элитный красный чай из провинции Юньнань, производимый исключительно из нежных золотистых почек. Славится своим медовым, маслянистым вкусом и способностью удивлять необычными нотами (например, томата в мокром листе).
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Слива, хлебный мякиш, карамелизованные фрукты, мёд, варенье, сухофрукты, бисквит, кислые фрукты (манго).</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Томат, горький шоколад.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (20 сек)</div><div class="brew-desc">Тёмный янтарь. Плотный, маслянистый. Творог, хлебный мякиш и корочка, карамелизованные фрукты, сухофрукты, слива, бисквит, тропические фрукты, варенье, жареные семечки.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (25 сек)</div><div class="brew-desc">Медово-янтарный. Слива, бисквит, корочка, сдоба, чернослив, жареные семечки, горчинка, ягодная кислинка, печёные фрукты, изюм, творог.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (30 сек)</div><div class="brew-desc">Плотный, маслянистый. Терпкий, хлебный. Больше творога и бисквита, сухофрукты угасли. Лёгкий томат, мёд, семечки.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (30 сек)</div><div class="brew-desc">Светлеет. Бисквит, мякиш, сдоба. Сильная корочка, мёд, сильный томат. Сухофрукты и творог слабые.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й (40 сек)</div><div class="brew-desc">Прозрачнее. Томат на первом месте. Инжир, хлебные ноты, семечки.</div></div>
-                </div>
+            <div class="params">
+                <div class="param">Глина 130 мл</div>
+                <div class="param">5 г</div>
+                <div class="param">95–100 °C</div>
             </div>
-
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Тань Янь Гун Фу Хун Ча</div>
-                    <div class="tea-subtitle">Высшее мастерство • Уишаньский красный</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Легендарный красный чай из деревни Тань Янь (Уишань), история которого насчитывает более 170 лет. Технология его производства признана нематериальным культурным наследием Китая.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Мёд, карамель, хлебный мякиш, сильная сладость, далёкие ягоды и манго.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Пряный, мягкий, мёд с карамелью, жареные подсолнечные семечки, далёкий персик, хлебная корочка.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (22 сек)</div><div class="brew-desc">Оранжево-янтарный. Несладкий персик, хлебный мякиш. Хлебная корочка, жареные семечки, мёд, сдобная выпечка, сладость на языке.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (37 сек)</div><div class="brew-desc">Плотный, сливовый. Персик, семечки, корочка, горчинка, пряность. Мёд и карамель.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (42 сек)</div><div class="brew-desc">Тропические фрукты, ягоды, корочка, цветы. Мёд и карамель. Послевкусие — горчинка.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (47 сек)</div><div class="brew-desc">Мякиш с мёдом, цветы, печёные фрукты, ягодная кислинка, слабая горчинка в семечки. Послевкусие — сладкий хлеб.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й (1 мин)</div><div class="brew-desc">Сильно маслянистый. Сладость, затем приятная горчинка. Мягкий мякиш, цветочки, сладкие ягоды, сочные фрукты. Кислинка ушла.</div></div>
-                </div>
-            </div>
-
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Е Шен Митао Хун Ча</div>
-                    <div class="tea-subtitle">Дикий медовый персик • Дикорос из Уи</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Дикорастущий красный чай с гор Уишань, который сочетает в себе признаки красного чая и улуна. Его главная особенность — редкий «персиковый» аромат, который получается только при удачном стечении обстоятельств и особой обработке.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Персики, лёгкие цветы, сладкие ягоды, сухофрукты, тропические фрукты, мёд.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Сильные кисленькие ягоды, чернослив, цветочная пыльца, скошенная трава, цветы, запах уишаньских улунов.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (20 сек)</div><div class="brew-desc">Оранжево-янтарный. Уишаньский улун. Кислые ягоды, сухофрукты, сладость, мёд, скошенная трава. Прожаренный.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (20 сек)</div><div class="brew-desc">Горький. Трава, сухофрукты, прожаренный улун, мёд, сильно горький финал. Цветы, пряное, сливочность, сухая древесина, курага, дым, копоть, табак. Послевкусие — уишаньские жареные улуны.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (15 сек)</div><div class="brew-desc">Всё ещё горький. Дым, копоть, табак, тропические фрукты, цветы, пряность. Сливочный. Чернослив, курага, финик. Трава, цветы, луг. Главные ноты: дымные и цветы.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (30 сек, 50% воды)</div><div class="brew-desc">Светлее. Хороший дым, меньше жарености. Слива, мягкие сладкие цветы с пыльцой. Мягкий, сливочный.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й (22 сек)</div><div class="brew-desc">Трава, цветы, пыльца, сухофрукты, жидкий цветочный мёд, табак, дым, обжаренность.</div></div>
-                    <div class="brew-item"><div class="brew-time">6-й (25 сек)</div><div class="brew-desc">Послабее. На первом плане цветы с пыльцой.</div></div>
-                </div>
-            </div>
-
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Е Шен Шайгань Хун Ча</div>
-                    <div class="tea-subtitle">Дикий шайхун • Солнечная сушка</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Красный чай, высушенный на солнце. Технология шайхун позволяет сохранить максимум природной сладости и сочности листа, из-за чего ягодные ноты (смородина, шиповник, боярышник) звучат ярче, чем у печёных красных чаёв.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Кислые и терпкие ягоды (смородина, шиповник, боярышник, рябина), лесные ягоды, сухофрукты, вишня, сладкие оттенки.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Печёные фрукты, пастила, фруктовые и ягодные ноты, винная и ягодная терпкость, кислые ягоды, лесные ягоды, сухофрукты, лёгкий банный оттенок.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (25 сек)</div><div class="brew-desc">Золотисто-янтарный. Запах кислых ягод. Очень сильный густой мёд, кислые ягоды, сухофрукты, трава, шиповник, боярышник.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (30 сек)</div><div class="brew-desc">Кисленький, без горчинки. Плотный мёд, трава, ягоды (дикие и домашние), сухофрукты, боярышник, смородина.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (35 сек)</div><div class="brew-desc">Мёд слегка ушёл. Более травянистый, «баня» выражена. Кислые ягоды усилились.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (40 сек)</div><div class="brew-desc">Мёд сильно выражен, но идёт последним. Сначала трава, вяжущие ягоды, сухие осенние листья, цветы.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й (45 сек)</div><div class="brew-desc">Ягоды уходят. Лес, сухие осенние листья. Мёд сильный, настой плотный.</div></div>
-                    <div class="brew-item"><div class="brew-time">6-й (50 сек)</div><div class="brew-desc">Мёд плотный, настой сливочный. Лес, деревья (сосна), сухие листья. Шиповник, боярышник, смородина, сухофрукты. Кислые ягоды слабенькие. На первом месте сухие листья.</div></div>
-                </div>
-            </div>
-
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Дун Фан Мэй Жень</div>
-                    <div class="tea-subtitle">Восточная красавица • Улун с медовым ароматом</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Знаменитый тайваньский чай, который обязан своим неповторимым медовым ароматом... насекомым (цикадам). Когда цикады кусают листья, растение запускает защитную реакцию, выделяя терпены, которые при ферментации превращаются в густой медовый аромат.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">7 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Сухофрукты, сладкие цветы, тропические фрукты, мёд и сильные ноты, которые сложно описать.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат прогретого листа</h5>
-                    <p>Мёд, парфюмерные цветы, сухофрукты, цветочная пыльца и спелые фрукты.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (8 сек)</div><div class="brew-desc">Светлый золотисто-жёлтый. Плотный мёд, ягодная кислинка, сухие осенние листья, пряность, сухофрукты, ягоды. Тёплый, плотный, мягкий настой. Мягкое сладкое послевкусие. Сильно согревает.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (12 сек)</div><div class="brew-desc">Горький, медовый, травяной. Сухие осенние листья, сухофрукты, дымка, прожарка, табак. Сливочный, не плотный, мягкий, согревающий.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (15 сек)</div><div class="brew-desc">Финальный пролив.</div></div>
-                </div>
-            </div>
-
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Баван Цзинчжэнь</div>
-                    <div class="tea-subtitle">Король золотых игл • Экспериментальный красный</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Красный чай, состоящий из золотых почек. Отлично подходит для экспериментов с температурой: при 100 °C он раскрывается жареными нотами, а при 70 °C — мягкой сливочностью и печёными яблоками.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">7 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">70–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Хлебный мякиш, жареность, дымка, марципан, творог, сдоба.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Жареный хлеб, овощи, выпечка, марципан, трава.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (100 °C)</div><div class="brew-desc">Жареный хлеб, жареные семечки, табак, фрукты, трава, цветы, хлебная корочка, мякиш, горчинка.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (100 °C)</div><div class="brew-desc">Послевкусие — тёмный шоколад. Персик, спелые сочные фрукты, цветы, трава, дымка, жареность, жареные семечки, жареные каштаны, корочка с мякишем, бисквит. Настой очень сливочный и плотный.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (100 °C)</div><div class="brew-desc">Горькие жареные семечки, спелые фрукты, сильно печёные фрукты (печёные яблоки), цветы.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (70 °C)</div><div class="brew-desc">Жареный хлеб, жареные семечки, хлебный мякиш, сдоба, бисквит, цветы, трава, персик, печёные яблоки. Послевкусие мягкое и сладкое.</div></div>
-                </div>
-            </div>
-            
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Цзюцинь Хунмэй Лунцзинь Хунчжоу</div>
-                    <div class="tea-subtitle">Красная слива реки • Красный чай из Чжэцзяна</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Необычный красный чай из провинции Чжэцзян. Сочетает в себе шоколадные, сливовые и хлебные ноты, что делает его отличным вариантом для тех, кто ищет новые вкусовые грани в красном чае.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Глина 130 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">90–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Шоколад (сильно), прожарка, ягоды, слива, спелые сочные фрукты, цветы, топлёный шоколад.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Фрукты, сильный табак, дымка, спелые сочные фрукты, цветы, тропические фрукты, очень сладко, сухофрукты, ягоды.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (слив)</div><div class="brew-desc">Мягкий, ягодный, сухофрукты, кислинка, мёд. Очень сильная сладость на кончике языка. Семечки, хлебная корочка и мякиш, бисквит. Настой плотный, мягкий, сливочный.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й</div><div class="brew-desc">Сладкий бисквит, сладкая горчинка, хлебная корочка, мякиш, цветы. Спелые тропические фрукты, слива (алыча), дымка, табак, жареные ноты.</div></div>
-                </div>
-            </div>
-
+            <h5>Аромат сухого листа</h5>
+            <p>Сильная хлебная корочка, ржаной хлеб, чернослив, слива, жареные семечки, сухофрукты, ягодки с кислинкой.</p>
+            <h5>Аромат мокрого листа</h5>
+            <p>Чернослив на первом месте, сухофрукты, лесные ягоды, хлебная корочка.</p>
+            <div class="brew-item"><div class="brew-time">1-й пролив</div><div>Маслянистый и плотный. Очень сильная слива. Ягодная кислинка, вишня, корочка, мёд, вишнёвый пирог, бисквит.</div></div>
+            <div class="brew-item"><div class="brew-time">2-й пролив</div><div>Плотный, слегка горчит. Обжаренные семечки, хлебушек, чернослив, лесные ягоды, сухофрукты, вяжущая черешня.</div></div>
         </div>
 
-        <!-- УЛУН -->
-        <div id="oolong" class="tea-section">
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Те Гуань Инь Хуасян</div>
-                    <div class="tea-subtitle">Цветочный аромат • Улун из Фуцзяни</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Классический улун с сильным цветочным ароматом. «Хуасян» означает «цветочный аромат» — эта версия Те Гуань Инь славится своими нотами сирени и кондитерских пряностей, которые отлично раскрываются в фарфоровой гайвани.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Фарфор 150 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">93 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Цветы, фруктовая сладость, мандарин.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Цветы, сирень, кондитерские пряные ноты, бисквит, фруктовая сочная сладость.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (8 сек)</div><div class="brew-desc">Травянистый и цветочный, сладости нету. Настой водянистый.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (8 сек)</div><div class="brew-desc">Цветочность, трава. Сладость спелых и сочных тропических фруктов.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (15 сек)</div><div class="brew-desc">Стал плотным, ярким и насыщенным. Спелые, сочные фрукты, сладость. Очень приятная сладкая терпкость. Трава почти не чувствуется. Вкусы и ароматы «танцуют» во рту. Послевкусие: насыщенное, терпкое, сладкое.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (20 сек)</div><div class="brew-desc">Трава вернулась, чувствуются цветы и хорошая сладость (не фруктовая). На заднем плане никаких ароматов нет.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й (35 сек)</div><div class="brew-desc">Сильные цветы, трава. Слабая терпкость. И очень-очень далёкая страна.</div></div>
-                    <div class="brew-item"><div class="brew-time">6-й (1 мин)</div><div class="brew-desc">Слабовыраженный, травяной, цветочный, сладенький, но с сильной горчинкой.</div></div>
-                    <div class="brew-item"><div class="brew-time">7-й (1 мин 20 сек)</div><div class="brew-desc">Вода с маленькой травяной нотой и горчинкой.</div></div>
-                </div>
+        <div class="tea-card">
+            <div class="tea-title">Дянь Хун Цзинь Цзюнь</div>
+            <div class="tea-subtitle">Золотые ветви • Красный чай</div>
+            <div class="tea-history">
+                <strong>История:</strong> Элитный красный чай из Юньнани, производимый из нежных золотистых почек. Славится своим медовым, маслянистым вкусом и способностью удивлять необычными нотами (например, томата в мокром листе).
             </div>
+            <div class="params">
+                <div class="param">Глина 130 мл</div>
+                <div class="param">5 г</div>
+                <div class="param">95–100 °C</div>
+            </div>
+            <h5>Аромат сухого листа</h5>
+            <p>Слива, хлебный мякиш, карамелизованные фрукты, мёд, варенье, бисквит, кислые фрукты (манго).</p>
+            <h5>Аромат мокрого листа</h5>
+            <p>Томат, горький шоколад.</p>
+            <div class="brew-item"><div class="brew-time">1-й пролив</div><div>Тёмный янтарь. Плотный, маслянистый. Творог, мякиш, корочка, карамель, сухофрукты, слива, бисквит, варенье, семечки.</div></div>
         </div>
 
-        <!-- БЕЛЫЙ ЧАЙ -->
-        <div id="white" class="tea-section">
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Сюэ Я Бай Ча</div>
-                    <div class="tea-subtitle">Снежная почка • Белый чай</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Белый чай из почек, который обычно ценится за нежность и цветочность. Однако твой лот оказался более плотным и «лесным» — это говорит о диком сырье или выдержанном материале, который при заваривании крутым кипятком раскрывается банными и древесными нотами.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Фарфор 140 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">95–100 °C</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Сухие осенние листья, баня, скошенная трава, сильный мёд и веник.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Точно такой же, но более выраженный. Карамелизованные фрукты, очень спелые тропические фрукты, просто фрукты и печёные фрукты.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (5 сек)</div><div class="brew-desc">Настой маслянистый. Пряность, сладость на кончике языка, сухие листья, баня, берёзовый веник, мёд. Цветы и цветочная пыльца. Послевкусие — травяное и цветочное.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (7 сек, 40% воды)</div><div class="brew-desc">То же самое, но добавились ещё сильнее полевые цветы и кислинка.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (7 сек, 50/50)</div><div class="brew-desc">Стал более цветочным и медовым. Сухие листья также сильно присутствуют.</div></div>
-                    <div class="brew-item"><div class="brew-time">4-й (7 сек)</div><div class="brew-desc">Профиль сохраняется.</div></div>
-                    <div class="brew-item"><div class="brew-time">5-й и далее</div><div class="brew-desc">Вкус всегда остаётся таким же, только ноты меняются местами.</div></div>
-                </div>
+        <div class="tea-card">
+            <div class="tea-title">Те Гуань Инь Хуасян</div>
+            <div class="tea-subtitle">Цветочный аромат • Улун</div>
+            <div class="tea-history">
+                <strong>История:</strong> Классический улун с сильным цветочным ароматом. «Хуасян» означает «цветочный аромат» — эта версия славится своими нотами сирени и кондитерских пряностей.
             </div>
+            <div class="params">
+                <div class="param">Фарфор 150 мл</div>
+                <div class="param">5 г</div>
+                <div class="param">93 °C</div>
+            </div>
+            <h5>Аромат сухого листа</h5>
+            <p>Цветы, фруктовая сладость, мандарин.</p>
+            <h5>Аромат мокрого листа</h5>
+            <p>Цветы, сирень, кондитерские пряные ноты, бисквит, сочная сладость.</p>
+            <div class="brew-item"><div class="brew-time">1-й пролив (8 сек)</div><div>Травянистый и цветочный, сладости нету. Настой водянистый.</div></div>
+            <div class="brew-item"><div class="brew-time">3-й пролив (15 сек)</div><div>Стал плотным, ярким. Спелые фрукты, сладость. Приятная сладкая терпкость. Вкусы «танцуют» во рту.</div></div>
         </div>
 
-        <!-- ПУЭР -->
-        <div id="puer" class="tea-section">
-            <div class="tea-card">
-                <div class="tea-header">
-                    <div class="tea-title">Хуапянь Шэн Пуэр</div>
-                    <div class="tea-subtitle">Мост бирюзового дракона • Шэн (2020)</div>
-                </div>
-                <div class="tea-history">
-                    <strong>История и бэкграунд:</strong> Хуапянь — это «жёлтые листья», которые специально отбирают (третий-четвёртый лист с побега). Они дают более мягкий, сладкий и насыщенный настой по сравнению с обычным шэном. Твой лот — с плантаций Наньпо Биндао в Юньнани.
-                </div>
-                <div class="params-grid">
-                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Керамика 140 мл</span></div>
-                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">5 г</span></div>
-                    <div class="param-item"><span class="param-label">Год</span><span class="param-value">2020</span></div>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат сухого листа</h5>
-                    <p>Барбарис, мёд, карамель, карамелизованные фрукты, спелые сочные фрукты, трава, сильно выраженные цветы и фрукты.</p>
-                </div>
-                <div class="notes-block">
-                    <h5>Аромат мокрого листа</h5>
-                    <p>Кислый, сочный. Яблочное пюре, кислые ягоды, лесные ягоды. Очень вкусный, сладкий запах. Спелые фрукты. Цветов не слышно.</p>
-                </div>
-                <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (мгновенный)</div><div class="brew-desc">Настой мягкий и сладенький. Во вкусе — трава и цветущие цветы, которые выделяют пыльцу.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (мгновенный)</div><div class="brew-desc">Вкус мягкий, маслянистый, цветочный и травянистый. Появляются ореховые ноты и рябина.</div></div>
-                    <div class="brew-item"><div class="brew-time">3-й (мгновенный)</div><div class="brew-desc">Добавился мягкий бисквит, ягодная кислинка и маленькая ягодная терпкость.</div></div>
-                </div>
+        <div class="tea-card">
+            <div class="tea-title">Сюэ Я Бай Ча</div>
+            <div class="tea-subtitle">Снежная почка • Белый чай</div>
+            <div class="tea-history">
+                <strong>История:</strong> Белый чай из почек. Твой лот оказался плотным и «лесным» — это говорит о диком сырье, которое при заваривании крутым кипятком раскрывается банными и древесными нотами.
             </div>
+            <div class="params">
+                <div class="param">Фарфор 140 мл</div>
+                <div class="param">5 г</div>
+                <div class="param">95–100 °C</div>
+            </div>
+            <h5>Аромат сухого листа</h5>
+            <p>Сухие осенние листья, баня, скошенная трава, сильный мёд и веник.</p>
+            <h5>Аромат мокрого листа</h5>
+            <p>Более выраженный. Карамелизованные фрукты, спелые тропические фрукты, печёные фрукты.</p>
+            <div class="brew-item"><div class="brew-time">1-й пролив (5 сек)</div><div>Настой маслянистый. Пряность, сладость на кончике языка, сухие листья, баня, берёзовый веник, мёд.</div></div>
+        </div>
+
+        <div class="tea-card">
+            <div class="tea-title">Хуапянь Шэн Пуэр</div>
+            <div class="tea-subtitle">Мост бирюзового дракона • Шэн (2020)</div>
+            <div class="tea-history">
+                <strong>История:</strong> Хуапянь — это «жёлтые листья», которые специально отбирают. Они дают более мягкий, сладкий и насыщенный настой по сравнению с обычным шэном. Твой лот — с плантаций Наньпо Биндао.
+            </div>
+            <div class="params">
+                <div class="param">Керамика 140 мл</div>
+                <div class="param">5 г</div>
+                <div class="param">2020 год</div>
+            </div>
+            <h5>Аромат сухого листа</h5>
+            <p>Барбарис, мёд, карамель, карамелизованные фрукты, спелые сочные фрукты, трава, цветы.</p>
+            <h5>Аромат мокрого листа</h5>
+            <p>Кислый, сочный. Яблочное пюре, кислые ягоды, лесные ягоды. Спелые фрукты.</p>
+            <div class="brew-item"><div class="brew-time">1-й пролив</div><div>Настой мягкий и сладенький. Трава и цветущие цветы, которые выделяют пыльцу.</div></div>
+            <div class="brew-item"><div class="brew-time">2-й пролив</div><div>Мягкий, маслянистый, цветочный. Ореховые ноты и рябина.</div></div>
         </div>
 
     </div>
@@ -690,34 +182,5 @@
         <p>© 2024 Chadao-VA — личный дневник дегустатора. Сделано с любовью к чаю.</p>
     </footer>
 
-    <script>
-        // Логика переключения категорий
-        function showCategory(categoryId) {
-            // Скрываем все секции
-            const sections = document.querySelectorAll('.tea-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Показываем нужную секцию
-            if(categoryId === 'all') {
-                sections.forEach(section => section.classList.add('active'));
-            } else {
-                const activeSection = document.getElementById(categoryId);
-                if(activeSection) {
-                    activeSection.classList.add('active');
-                }
-            }
-            
-            // Прокрутка к началу контента
-            window.scrollTo({
-                top: document.querySelector('.tasting-container').offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
-
-        // По умолчанию показываем все
-        showCategory('all');
-    </script>
 </body>
 </html>
