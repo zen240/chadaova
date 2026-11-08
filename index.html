@@ -268,7 +268,7 @@
         <p>Личный дневник дегустатора. Записи об ароматах, вкусах, проливах и открытиях на дне чашки.</p>
         
         <div class="stats-badge">
-            В коллекции: <span>9 дегустаций</span> в <span>5 категориях</span> чая
+            В коллекции: <span>10 дегустаций</span> в <span>5 категориях</span> чая
         </div>
     </header>
 
@@ -422,11 +422,16 @@
         <div id="white" class="tea-section">
             <!-- ЛАО ГУН МЭЙ (1 МЕСТО) -->
             <div class="tea-card" id="lao-gun-mei">
-                <div class="tea-header"><div class="tea-title">Лао Гун Мэй «Золотая награда»</div><div class="tea-subtitle">Выдержанный белый чай</div></div>
-                <div class="tea-history"><strong>История:</strong> Гунмэй — это белый чай, в котором преобладают зрелые листья, а не только почки. «Лао» (老) означает «старый» или «выдержанный». С годами такой чай приобретает глубокий медовый, фруктовый и лекарственный профиль.</div>
+                <div class="tea-header"><div class="tea-title">Лао Гун Мэй «Золотая награда»</div><div class="tea-subtitle">Выдержанный белый чай • 2014 год</div></div>
+                <div class="tea-history"><strong>История:</strong> Гунмэй — это белый чай, в котором преобладают зрелые листья, а не только почки. «Лао» (老) означает «старый» или «выдержанный». Этот лот 2014 года! С годами такой чай приобретает глубокий медовый, фруктовый и лекарственный профиль.</div>
                 <div class="params-grid">
+                    <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Керамика 130 мл</span></div>
+                    <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">7 г</span></div>
+                    <div class="param-item"><span class="param-label">Температура</span><span class="param-value">90–100 °C</span></div>
+                    <div class="param-item"><span class="param-label">Год</span><span class="param-value">2014</span></div>
                     <div class="param-item"><span class="param-label">Вода</span><span class="param-value">Родник у дома</span></div>
                 </div>
+                <div class="notes-block"><h5>Аромат сухого листа</h5><p>Спелые фрукты, яблочное пюре, пастила, фруктовая сладость, ягодная кислинка, полевые цветы.</p></div>
                 <div class="notes-block"><h5>Аромат мокрого листа</h5><p>Очень сильный, сладкий, густой. Чистый мёд, кислые и лесные ягоды, спелые фрукты. Также чувствуется цветочный нектар.</p></div>
                 <div class="brews-list">
                     <div class="brew-item"><div class="brew-time">1-й (мгновенный)</div><div class="brew-desc">Сильный мёд, полевые цветы, ягодная кислинка, яблочное пюре, спелые фрукты и нектар.</div></div>
@@ -441,7 +446,6 @@
                     <div class="brew-item"><div class="brew-time">10-й (30 сек)</div><div class="brew-desc">Слабеет, но появляется очень сильная сладость. Цветы усиливаются, добавляется цветочная пыльца.</div></div>
                     <div class="brew-item"><div class="brew-time">11-й (30 сек)</div><div class="brew-desc">Цветочный и сладкий вкус. Мёд становится «жидким».</div></div>
                     <div class="brew-item"><div class="brew-time">12-й (2 мин)</div><div class="brew-desc">Вкус такой же (цветочный, сладкий, жидкий мёд).</div></div>
-                    <div class="brew-item"><div class="brew-time">13-й (3 мин)</div><div class="brew-desc">Вкус такой же. Чай отлично держит марку!</div></div>
                 </div>
             </div>
 
@@ -556,7 +560,6 @@
                 if(activeSection) activeSection.classList.add('active');
             }
             
-            // Прокрутка к началу контейнера
             window.scrollTo({
                 top: document.querySelector('.tasting-container').offsetTop - 80,
                 behavior: 'smooth'
@@ -565,29 +568,23 @@
         
         // Функция для перехода к конкретному чаю из Топ-3
         function scrollToTea(teaId) {
-            // 1. Сначала показываем ВСЕ категории, чтобы нужная карточка точно была видна
             showCategory('all');
             
-            // 2. Ждем немного, чтобы анимация отображения сработала, и скроллим к карточке
             setTimeout(() => {
                 const teaCard = document.getElementById(teaId);
                 if(teaCard) {
-                    // Прокручиваем к элементу
                     teaCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     
-                    // Добавляем временную золотую рамку для привлечения внимания
                     teaCard.classList.add('highlight');
                     setTimeout(() => {
                         teaCard.classList.remove('highlight');
-                    }, 2000); // Убрать подсветку через 2 секунды
+                    }, 2000);
                 }
             }, 100);
         }
         
-        // Показываем все при загрузке
         showCategory('all');
 
-        // Логика для кнопки Наверх
         const backToTopBtn = document.getElementById("backToTop");
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
