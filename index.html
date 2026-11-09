@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -128,7 +129,7 @@
         }
         .stats-badge span { color: var(--accent-gold); }
 
-        /* Меню категорий (СРАЗУ ПОД ШАПКОЙ) */
+        /* Меню категорий */
         .categories {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px; max-width: 1100px; margin: 20px auto 40px; padding: 0 20px;
@@ -144,7 +145,7 @@
         .category-card h3 { font-size: 14px; color: var(--accent-gold); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
         .category-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--accent-green); }
 
-        /* Топ-3 (ПЬЕДЕСТАЛ) */
+        /* Топ-3 */
         .top-three {
             max-width: 900px;
             margin: 20px auto 60px;
@@ -315,7 +316,7 @@
         <div class="stats-badge">В коллекции: <span>10 дегустаций</span> в <span>5 категориях</span> чая</div>
     </header>
 
-    <!-- МЕНЮ КАТЕГОРИЙ (Сразу видно при входе) -->
+    <!-- МЕНЮ КАТЕГОРИЙ -->
     <div class="categories">
         <div class="category-card" onclick="showCategory('red')"><h3>红茶</h3><h4>Красный чай</h4></div>
         <div class="category-card" onclick="showCategory('oolong')"><h3>乌龙茶</h3><h4>Улун</h4></div>
@@ -386,19 +387,31 @@
 
         <!-- БЕЛЫЙ ЧАЙ -->
         <div id="white" class="tea-section">
+            <!-- ОБНОВЛЕННЫЙ ЛАО ГУН МЭЙ -->
             <div class="tea-card" id="lao-gun-mei">
                 <div class="tea-header"><div class="tea-title">Лао Гун Мэй «Золотая награда»</div><div class="tea-subtitle">Выдержанный белый чай • 2014 год</div></div>
-                <div class="tea-history"><strong>История:</strong> Гунмэй — это белый чай, в котором преобладают зрелые листья. Этот лот 2014 года! С годами такой чай приобретает глубокий медовый профиль.</div>
+                <div class="tea-history"><strong>История:</strong> Гунмэй — это белый чай, в котором преобладают зрелые листья, а не только почки. «Лао» (老) означает «старый» или «выдержанный». Этот лот 2014 года! С годами такой чай приобретает глубокий медовый, фруктовый и лекарственный профиль.</div>
                 <div class="params-grid">
                     <div class="param-item"><span class="param-label">Посуда</span><span class="param-value">Керамика 130 мл</span></div>
                     <div class="param-item"><span class="param-label">Пропорция</span><span class="param-value">7 г</span></div>
                     <div class="param-item"><span class="param-label">Температура</span><span class="param-value">90–100 °C</span></div>
+                    <div class="param-item"><span class="param-label">Год</span><span class="param-value">2014</span></div>
                 </div>
-                <div class="notes-block"><h5>Аромат сухого листа</h5><p>Спелые фрукты, яблочное пюре, пастила, фруктовая сладость, полевые цветы.</p></div>
-                <div class="notes-block"><h5>Аромат мокрого листа</h5><p>Очень сильный, сладкий, густой. Чистый мёд, кислые и лесные ягоды, спелые фрукты. Нектар.</p></div>
+                <div class="notes-block"><h5>Аромат сухого листа</h5><p>Спелые фрукты, яблочное пюре, пастила, фруктовая сладость, ягодная кислинка, полевые цветы.</p></div>
+                <div class="notes-block"><h5>Аромат мокрого листа</h5><p>Очень сильный, сладкий, густой. Чистый мёд, кислые и лесные ягоды, спелые фрукты. Также чувствуется цветочный нектар.</p></div>
                 <div class="brews-list">
-                    <div class="brew-item"><div class="brew-time">1-й (мгновенный)</div><div class="brew-desc">Сильный мёд, полевые цветы, ягодная кислинка, яблочное пюре, нектар.</div></div>
-                    <div class="brew-item"><div class="brew-time">2-й (10 сек)</div><div class="brew-desc">Лёгкая горчинка. Спелые фрукты, ягодная кислинка, полевые цветы и липа.</div></div>
+                    <div class="brew-item"><div class="brew-time">1-й (мгновенный)</div><div class="brew-desc">Сильный мёд, полевые цветы, ягодная кислинка, яблочное пюре, спелые фрукты и нектар.</div></div>
+                    <div class="brew-item"><div class="brew-time">2-й (10 сек)</div><div class="brew-desc">Лёгкая горчинка. Спелые фрукты, ягодная кислинка, полевые цветы и липа. Мёд сильный, на первом плане.</div></div>
+                    <div class="brew-item"><div class="brew-time">3-й (7 сек)</div><div class="brew-desc">Мёд главный. Полевые цветы слабее, но есть спелые ягоды, пастила, яблочное пюре, липа и фруктовая сладость.</div></div>
+                    <div class="brew-item"><div class="brew-time">4-й (10 сек)</div><div class="brew-desc">Сильная ягодная кислинка и приятная полевая цветочная сладость. Мёд на первом плане.</div></div>
+                    <div class="brew-item"><div class="brew-time">5-й (13 сек)</div><div class="brew-desc">Вкус чуть послабее, профиль сохраняется. Мёд лидирует.</div></div>
+                    <div class="brew-item"><div class="brew-time">6-й (20 сек)</div><div class="brew-desc">Насыщенный вкус, профили те же.</div></div>
+                    <div class="brew-item"><div class="brew-time">7-й (30 сек)</div><div class="brew-desc">Слабее и жёстче. В послевкусии горчинка.</div></div>
+                    <div class="brew-item"><div class="brew-time">8-й (30 сек)</div><div class="brew-desc">Профиль такой же, чуть жёсткий, но вкусный.</div></div>
+                    <div class="brew-item"><div class="brew-time">9-й (20 сек)</div><div class="brew-desc">Профиль сохраняется.</div></div>
+                    <div class="brew-item"><div class="brew-time">10-й (30 сек)</div><div class="brew-desc">Слабеет, но появляется очень сильная сладость. Цветы усиливаются, добавляется цветочная пыльца.</div></div>
+                    <div class="brew-item"><div class="brew-time">11-й (30 сек)</div><div class="brew-desc">Цветочный и сладкий вкус. Мёд становится «жидким».</div></div>
+                    <div class="brew-item"><div class="brew-time">12-й (2 мин)</div><div class="brew-desc">Вкус такой же (цветочный, сладкий, жидкий мёд).</div></div>
                 </div>
             </div>
         </div>
